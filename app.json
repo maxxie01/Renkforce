@@ -15,8 +15,8 @@
     "email": "max.vanderhelm@maxxie.nl"
   },
   "images": {
-    "large": "./assets/images/large.jpg",
-    "small": "./assets/images/small.jpg"
+    "large": "./assets/images/large.png",
+    "small": "./assets/images/small.png"
   },
   "signals": {
     "433": {
