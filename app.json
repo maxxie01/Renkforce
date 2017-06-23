@@ -8,7 +8,7 @@
         "nl": "Renkforce schakelmodule"
     },
   "category": ["appliances","lights"],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=1.0",
   "author": {
     "name": "Max van der Helm",
@@ -30,7 +30,7 @@
           [274,958,275,955]
         ],
         "interval": 10000,
-        "sensitivity": 0.7,
+        "sensitivity": 0.4,
         "repetitions": 20,
         "minimalLength": 12,
         "maximalLength": 12
@@ -53,14 +53,8 @@
       },
       "pair": [
         {
-          "id": "generic_choice",
-          "navigation": {}
-        },
-        {
           "id": "generic_imitate",
-          "navigation": {
-            "prev": "generic_choice"
-          }
+          "navigation": {}
         },
         {
           "id": "generic_test_switch_2",
