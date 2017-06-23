@@ -98,6 +98,67 @@
           "navigation": {}
         }
       ]
+    },
+    {
+      "id": "renkforce_remote",
+      "name": {
+        "en": "Renkforce remote"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "small": "./drivers/renkforce_remote/assets/images/small.jpg",
+        "large": "./drivers/renkforce_remote/assets/images/large.jpg"
+      },
+      "pair": [
+        {
+          "id": "generic_imitate",
+          "navigation": {}
+        },
+        {
+          "id": "generic_test_switch_2",
+          "navigation": {
+            "prev": "generic_imitate",
+            "next": "generic_choose_slave_2"
+          }
+        },
+        {
+          "id": "generic_choose_slave_2",
+          "navigation": {
+            "prev": "generic_test_switch_2",
+            "next": "generic_done"
+          },
+          "template": "choose_slave"
+        },
+        {
+          "id": "generic_program",
+          "navigation": {
+            "prev": "generic_choice",
+            "next": "generic_test_switch"
+          }
+        },
+        {
+          "id": "generic_test_switch",
+          "navigation": {
+            "prev": "generic_program",
+            "next": "generic_choose_slave"
+          }
+        },
+        {
+          "id": "generic_choose_slave",
+          "navigation": {
+            "prev": "generic_test_switch",
+            "next": "generic_done"
+          },
+          "template": "choose_slave"
+        },
+        {
+          "id": "generic_done",
+          "navigation": {}
+        }
+      ]
     }
   ],
   "flow": {
