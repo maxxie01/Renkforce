@@ -1,15 +1,18 @@
 {
-  "id": "nl.maxxie.renkforce",
+  "id": "nl.maxxie.renkforce2",
+  "sdk": 2,
   "name": {
-    "en": "Renkforce"
+    "en": "Renkforce Remote",
+    "nl": "Renkforce Afstandsbediening"
   },
   "description": {
-        "en": "Renkforce wallsocked",
-        "nl": "Renkforce schakelmodule"
-    },
+    "en": "Add support for Renkforce Remote Control",
+    "nl": "Voeg ondersteuning voor Renkforce Afstandsbediening toe"
+  },
   "category": ["appliances","lights"],
-  "version": "1.0.1",
-  "compatibility": ">=1.0",
+  "permissions": ["homey:wireless:433"],
+  "version": "2.0.0",
+  "compatibility": ">=1.5.0",
   "author": {
     "name": "Max van der Helm",
     "email": "max.vanderhelm@maxxie.nl"
@@ -20,7 +23,7 @@
   },
   "signals": {
     "433": {
-      "RenkforceSignal_01": {
+      "renkforce": {
         "sof": [],
         "eof": [
           282
@@ -30,13 +33,14 @@
           [274,958,275,955]
         ],
         "interval": 10000,
-        "sensitivity": 0.4,
         "repetitions": 20,
+        "sensitivity": 0.5,
         "minimalLength": 12,
         "maximalLength": 12
       }
     }
   },
+  "flow": {},
   "drivers": [
     {
       "id": "renkforce_socket",
@@ -51,51 +55,27 @@
         "small": "./drivers/renkforce_socket/assets/images/small.jpg",
         "large": "./drivers/renkforce_socket/assets/images/large.jpg"
       },
+      "rf": {
+        "signal": "renkforce"
+      },
+      "settings": [],
       "pair": [
         {
-          "id": "generic_imitate",
+          "id": "imitate",
+          "rf_template": "imitate",
           "navigation": {}
         },
         {
-          "id": "generic_test_switch_2",
+          "id": "test_switch",
+          "rf_template": "test_switch",
           "navigation": {
-            "prev": "generic_imitate",
-            "next": "generic_choose_slave_2"
+            "prev": "imitate",
+            "next": "done"
           }
         },
         {
-          "id": "generic_choose_slave_2",
-          "navigation": {
-            "prev": "generic_test_switch_2",
-            "next": "generic_done"
-          },
-          "template": "choose_slave"
-        },
-        {
-          "id": "generic_program",
-          "navigation": {
-            "prev": "generic_choice",
-            "next": "generic_test_switch"
-          }
-        },
-        {
-          "id": "generic_test_switch",
-          "navigation": {
-            "prev": "generic_program",
-            "next": "generic_choose_slave"
-          }
-        },
-        {
-          "id": "generic_choose_slave",
-          "navigation": {
-            "prev": "generic_test_switch",
-            "next": "generic_done"
-          },
-          "template": "choose_slave"
-        },
-        {
-          "id": "generic_done",
-          "navigation": {}
+          "id": "done",
+          "rf_template": "done"
         }
       ]
     },
@@ -104,7 +84,7 @@
       "name": {
         "en": "Renkforce remote"
       },
-      "class": "socket",
+      "class": "button",
       "capabilities": [
         "onoff"
       ],
@@ -112,61 +92,29 @@
         "small": "./drivers/renkforce_remote/assets/images/small.jpg",
         "large": "./drivers/renkforce_remote/assets/images/large.jpg"
       },
+      "rf": {
+        "signal": "renkforce"
+      },
+      "settings": [],
       "pair": [
         {
-          "id": "generic_imitate",
+          "id": "imitate",
+          "rf_template": "imitate",
           "navigation": {}
         },
         {
-          "id": "generic_test_switch_2",
+          "id": "test_switch",
+          "rf_template": "test_switch",
           "navigation": {
-            "prev": "generic_imitate",
-            "next": "generic_choose_slave_2"
+            "prev": "imitate",
+            "next": "done"
           }
         },
         {
-          "id": "generic_choose_slave_2",
-          "navigation": {
-            "prev": "generic_test_switch_2",
-            "next": "generic_done"
-          },
-          "template": "choose_slave"
-        },
-        {
-          "id": "generic_program",
-          "navigation": {
-            "prev": "generic_choice",
-            "next": "generic_test_switch"
-          }
-        },
-        {
-          "id": "generic_test_switch",
-          "navigation": {
-            "prev": "generic_program",
-            "next": "generic_choose_slave"
-          }
-        },
-        {
-          "id": "generic_choose_slave",
-          "navigation": {
-            "prev": "generic_test_switch",
-            "next": "generic_done"
-          },
-          "template": "choose_slave"
-        },
-        {
-          "id": "generic_done",
-          "navigation": {}
+          "id": "done",
+          "rf_template": "done"
         }
       ]
     }
-  ],
-  "flow": {
-    "triggers": [],
-    "conditions": [],
-    "actions": []
-  },
-  "permissions": [
-    "homey:wireless:433"
   ]
 }

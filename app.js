@@ -1,9 +1,15 @@
-"use strict";
+'use strict';
 
-function init() {
-	
-	Homey.log("Renkforce app is started!");
-	
+const Homey = require('homey');
+
+class MyApp extends Homey.App {
+
+	onInit() {
+
+		this.log('nl.maxxie.renkforce2 is running...');
+
+	}
+
 }
 
-module.exports.init = init;
+module.exports = MyApp;
