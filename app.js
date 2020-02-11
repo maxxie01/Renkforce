@@ -6,7 +6,7 @@ class MyApp extends Homey.App {
 
 	onInit() {
 
-		this.log('nl.maxxie.renkforce2 is running...');
+		this.log('nl.maxxie.renkforce is running...');
 
 	}
 
